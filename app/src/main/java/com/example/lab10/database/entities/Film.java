@@ -8,25 +8,26 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity(tableName="film",
+@Entity(tableName = "film",
         foreignKeys = {
-        @ForeignKey(entity = Genre.class, parentColumns = "genre_id", childColumns = "genre_id"),
-        @ForeignKey(entity = Country.class, parentColumns = "country_id", childColumns = "country_id")},
+                @ForeignKey(entity = Genre.class, parentColumns = "id", childColumns = "genre_id"),
+                @ForeignKey(entity = Country.class, parentColumns = "id", childColumns = "country_id")},
         indices = {
-        @Index(value="genre_id"),
-        @Index(value="country_id")})
+                @Index(value = "genre_id"),
+                @Index(value = "country_id")})
 public class Film {
     @PrimaryKey
-    private long filmId;
-    @ColumnInfo(name="film_name")
-    public String filmName;
-    @ColumnInfo(name="film_date")
-    public Date filmDate;
+    public int id;
+
+    @ColumnInfo(name = "name")
+    public String name;
+
+    @ColumnInfo(name="date")
+    public Date date;
+
     @ColumnInfo(name="genre_id")
-    public long genreId;
+    public int genreId;
+
     @ColumnInfo(name="country_id")
-    public long countryId;
-
-    public Film(){}
-
+    public int countryId;
 }
