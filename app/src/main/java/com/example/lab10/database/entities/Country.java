@@ -6,9 +6,14 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "country")
 public class Country {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id;
 
     @ColumnInfo(name = "name")
     public String name;
+
+    public Country(String name)
+    {
+        this.name = name;
+    }
 }

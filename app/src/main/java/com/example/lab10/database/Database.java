@@ -28,7 +28,7 @@ import com.example.lab10.database.entities.RewardForActor;
             Genre.class,
             Reward.class,
             RewardForActor.class},
-        version = 1)
+        version = 2)
 public abstract class Database extends RoomDatabase {
     public abstract ActorDao actorDao();
     public abstract ActorInFilmDao actorInFilmDao();
@@ -38,7 +38,7 @@ public abstract class Database extends RoomDatabase {
     public abstract RewardDao rewardDao();
     public abstract RewardForActorDao rewardForActorDao();
 
-    public static volatile Database INSTANCE;
+    public static Database INSTANCE;
     public static Database getDatabase(Context context){
         if (INSTANCE == null){
             synchronized (Database.class){
@@ -46,7 +46,7 @@ public abstract class Database extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(
                             context.getApplicationContext(),
                             Database.class,
-                            "test_database").build();
+                            "test_database").allowMainThreadQueries().fallbackToDestructiveMigration().build();
                 }
             }
         }

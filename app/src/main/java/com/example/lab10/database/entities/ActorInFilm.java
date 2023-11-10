@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey;
                 @Index(value = "actor_id"),
                 @Index(value = "film_id")})
 public class ActorInFilm {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id;
 
     @ColumnInfo(name = "actor_id")

@@ -14,13 +14,13 @@ import java.util.List;
 @Dao
 public interface CountryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(Country actor);
+    void insert(Country country);
 
     @Update
-    void update(Country actor);
+    void update(Country country);
 
     @Delete
-    void delete(Country actor);
+    void delete(Country country);
 
     @Query("SELECT * FROM country")
     List<Country> getAllCountry();

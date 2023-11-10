@@ -6,8 +6,6 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
-
 @Entity(tableName = "film",
         foreignKeys = {
                 @ForeignKey(entity = Genre.class, parentColumns = "id", childColumns = "genre_id"),
@@ -16,14 +14,11 @@ import java.util.Date;
                 @Index(value = "genre_id"),
                 @Index(value = "country_id")})
 public class Film {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id;
 
     @ColumnInfo(name = "name")
     public String name;
-
-    @ColumnInfo(name="date")
-    public Date date;
 
     @ColumnInfo(name="genre_id")
     public int genreId;
