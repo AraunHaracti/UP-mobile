@@ -15,4 +15,10 @@ public class Reward {
 
     @ColumnInfo(name = "info")
     public String info;
+
+    public Reward(String name, String info)
+    {
+        this.name = name;
+        this.info = info;
+    }
 }

@@ -7,7 +7,7 @@
     android:padding="15sp">
 
     <TextView
-        android:id="@+id/item_list_name"
+        android:id="@+id/name_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"

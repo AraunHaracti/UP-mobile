@@ -1,4 +1,4 @@
-package com.example.lab10;
+package com.example.lab10.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,16 +7,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.lab10.R;
 import com.example.lab10.database.entities.Country;
 
 import java.util.List;
 
-public class ItemListAdapter extends ArrayAdapter<Country> {
+public class ItemsListAdapter<T> extends ArrayAdapter<T> {
     private final LayoutInflater inflater;
     private final int layout;
-    private final List<Country> items;
+    private final List<T> items;
 
-    public ItemListAdapter(Context context, int resource, List<Country> items) {
+    public ItemsListAdapter(Context context, int resource, List<T> items) {
         super(context, resource, items);
 
         this.items = items;
@@ -37,17 +38,26 @@ public class ItemListAdapter extends ArrayAdapter<Country> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        Country country = items.get(position);
+        T item = items.get(position);
 
-        viewHolder.itemListName.setText(country.name);
+        setData(viewHolder, item);
 
         return convertView;
     }
 
-    private class ViewHolder {
-        final TextView itemListName;
+    protected void setData(ViewHolder viewHolder, T item)
+    {
+
+    }
+
+    protected class ViewHolder {
+        final TextView itemListName_1;
+        final TextView itemListName_2;
+        final TextView itemListName_3;
         ViewHolder(View view){
-            itemListName = view.findViewById(R.id.item_list_name);
+            itemListName_1 = view.findViewById(R.id.name_1);
+            itemListName_2 = view.findViewById(R.id.name_2);
+            itemListName_3 = view.findViewById(R.id.name_3);
         }
     }
 }
