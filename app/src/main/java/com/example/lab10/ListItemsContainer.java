@@ -65,7 +65,7 @@ public class ListItemsContainer extends Fragment {
         Thread th = new Thread(() -> {
             countryList = db.countryDao().getAllCountry();
 
-            ItemListAdapter itemListAdapter = new ItemListAdapter(getContext(), R.layout.list_item, countryList);
+            ItemListAdapter itemListAdapter = new ItemListAdapter(getContext(), R.layout.list_item_1, countryList);
 
             binding.itemsList.setAdapter(itemListAdapter);
         });
