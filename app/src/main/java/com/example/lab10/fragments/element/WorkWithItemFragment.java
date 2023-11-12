@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.lab10.database.Database;
 
-public class WorkWithItemListFragment extends Fragment {
+public class WorkWithItemFragment extends Fragment {
 
     protected Database database = Database.getDatabase(getContext());
 

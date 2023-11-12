@@ -9,16 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.lab10.adapters.CountryItemsListAdapter;
 import com.example.lab10.R;
 import com.example.lab10.database.Database;
 import com.example.lab10.databinding.FragmentListItemsContainerBinding;
-import com.example.lab10.fragments.element.WorkWithCountryItemFragment;
-import com.example.lab10.fragments.element.WorkWithItemListFragment;
+import com.example.lab10.fragments.element.WorkWithItemFragment;
 
-public class ListItemsContainer extends Fragment {
+public abstract class ListItemsContainer extends Fragment {
 
-    FragmentListItemsContainerBinding binding;
+    public FragmentListItemsContainerBinding binding;
+
+    Database db;
 
     public ListItemsContainer() {}
     @Override
@@ -37,25 +37,35 @@ public class ListItemsContainer extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        setBehavior();
+    }
+
+    private void setBehavior(){
+        db = Database.getDatabase(getContext());
+
         setItemsListInit();
+
         addItemBtnInit();
     }
 
     private void setItemsListInit() {
-        Thread th = new Thread(setThread());
-        th.start();
+        setAdapter();
     }
 
-    protected Runnable setThread()
-    {
-        Database db = Database.getDatabase(this.getContext());
+    private void addItemBtnInit(){
+        WorkWithItemFragment workWithItemFragment = getWorkWithItemListFragment();
 
-        Runnable th = () -> {
-            binding.itemsList.setAdapter(new CountryItemsListAdapter(getContext(), R.layout.list_item_1, db.countryDao().getAllCountry()));
-        };
+        if (workWithItemFragment == null) return;
 
-        return th;
+        binding.addItemBtn.setOnClickListener(v -> {
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_fragment, workWithItemFragment, "add_item")
+                    .addToBackStack("list_fragment_transaction")
+                    .commit();
+        });
     }
 
-    protected void addItemBtnInit(){ }
+    protected abstract void setAdapter();
+    protected abstract WorkWithItemFragment getWorkWithItemListFragment();
 }

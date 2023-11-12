@@ -8,14 +8,17 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.lab10.R;
+import com.example.lab10.database.Database;
 import com.example.lab10.database.entities.Country;
 
 import java.util.List;
 
-public class ItemsListAdapter<T> extends ArrayAdapter<T> {
+public abstract class ItemsListAdapter<T, V extends ItemsListAdapter.ViewHolder> extends ArrayAdapter<T> {
     private final LayoutInflater inflater;
     private final int layout;
     private final List<T> items;
+
+    Database db;
 
     public ItemsListAdapter(Context context, int resource, List<T> items) {
         super(context, resource, items);
@@ -23,19 +26,21 @@ public class ItemsListAdapter<T> extends ArrayAdapter<T> {
         this.items = items;
         this.layout = resource;
         this.inflater = LayoutInflater.from(context);
+
+        db = Database.getDatabase(getContext());
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ViewHolder viewHolder;
+        V viewHolder;
 
         if (convertView == null) {
             convertView = inflater.inflate(this.layout, parent, false);
-            viewHolder = new ViewHolder(convertView);
+            viewHolder = getViewHolder(convertView);
             convertView.setTag(viewHolder);
         }
         else{
-            viewHolder = (ViewHolder) convertView.getTag();
+            viewHolder = (V) convertView.getTag();
         }
 
         T item = items.get(position);
@@ -45,19 +50,13 @@ public class ItemsListAdapter<T> extends ArrayAdapter<T> {
         return convertView;
     }
 
-    protected void setData(ViewHolder viewHolder, T item)
-    {
+    protected abstract V getViewHolder(View view);
 
-    }
+    protected abstract void setData(V viewHolder, T item);
 
-    protected class ViewHolder {
-        final TextView itemListName_1;
-        final TextView itemListName_2;
-        final TextView itemListName_3;
-        ViewHolder(View view){
-            itemListName_1 = view.findViewById(R.id.name_1);
-            itemListName_2 = view.findViewById(R.id.name_2);
-            itemListName_3 = view.findViewById(R.id.name_3);
+    public abstract static class ViewHolder {
+        public ViewHolder(View view) {
+
         }
     }
 }

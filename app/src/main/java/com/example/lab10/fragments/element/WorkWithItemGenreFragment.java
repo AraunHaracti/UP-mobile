@@ -10,17 +10,18 @@ import android.view.ViewGroup;
 
 import com.example.lab10.R;
 import com.example.lab10.database.entities.Country;
-import com.example.lab10.database.entities.Reward;
-import com.example.lab10.databinding.FragmentWorkWithRewardItemListBinding;
+import com.example.lab10.database.entities.Genre;
+import com.example.lab10.databinding.FragmentWorkWithItemCountryBinding;
+import com.example.lab10.databinding.FragmentWorkWithItemGenreBinding;
 
-public class WorkWithRewardItemListFragment extends WorkWithItemListFragment {
+public class WorkWithItemGenreFragment extends WorkWithItemFragment {
 
-    FragmentWorkWithRewardItemListBinding binding;
+    FragmentWorkWithItemGenreBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentWorkWithRewardItemListBinding.inflate(inflater, container, false);
+        binding = FragmentWorkWithItemGenreBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -29,11 +30,10 @@ public class WorkWithRewardItemListFragment extends WorkWithItemListFragment {
         binding.insertBtn.setOnClickListener((v)->{
 
             String name = binding.name.getText().toString();
-            String info = binding.info.getText().toString();
 
-            Reward item = new Reward(name, info);
+            Genre item = new Genre(name);
 
-            database.rewardDao().insert(item);
+            database.genreDao().insert(item);
 
             getActivity().getSupportFragmentManager().popBackStack();
         });

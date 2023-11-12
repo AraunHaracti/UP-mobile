@@ -23,4 +23,10 @@ public class Actor {
 
     @ColumnInfo(name = "country_id")
     public int countryId;
+
+    public Actor(String name, String surname, int countryId){
+        this.name = name;
+        this.surname = surname;
+        this.countryId = countryId;
+    }
 }

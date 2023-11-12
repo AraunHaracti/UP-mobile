@@ -14,8 +14,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/open_actors"
@@ -37,6 +36,20 @@
             android:layout_height="80dp"
             android:textSize="30dp"
             android:text="Rewards"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/open_actors_in_films"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textSize="30dp"
+            android:text="Actors in films"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/open_rewards_for_actors"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textSize="30dp"
+            android:text="Rewards for actors"
             android:layout_margin="10sp"/>
         <Button
             android:id="@+id/open_countries"

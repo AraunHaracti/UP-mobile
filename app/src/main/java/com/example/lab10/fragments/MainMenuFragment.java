@@ -12,11 +12,14 @@ import android.view.ViewGroup;
 
 import com.example.lab10.R;
 import com.example.lab10.databinding.FragmentMainMenuBinding;
-import com.example.lab10.fragments.containers.ListItemsActorContainer;
-import com.example.lab10.fragments.containers.ListItemsCountryContainer;
-import com.example.lab10.fragments.containers.ListItemsFilmContainer;
-import com.example.lab10.fragments.containers.ListItemsGenreContainer;
-import com.example.lab10.fragments.containers.ListItemsRewardContainer;
+import com.example.lab10.fragments.containers.ListItemsContainerActor;
+import com.example.lab10.fragments.containers.ListItemsContainer;
+import com.example.lab10.fragments.containers.ListItemsContainerActorInFilm;
+import com.example.lab10.fragments.containers.ListItemsContainerCountry;
+import com.example.lab10.fragments.containers.ListItemsContainerFilm;
+import com.example.lab10.fragments.containers.ListItemsContainerGenre;
+import com.example.lab10.fragments.containers.ListItemsContainerReward;
+import com.example.lab10.fragments.containers.ListItemsContainerRewardForActor;
 
 public class MainMenuFragment extends Fragment {
 
@@ -40,44 +43,34 @@ public class MainMenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.openActors.setOnClickListener(view1 -> {
-            getActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.main_fragment, new ListItemsActorContainer(), "actors_list_fragment")
-                    .addToBackStack("list_fragment_transaction")
-                    .commit();
-        });
+        binding.openActors.setOnClickListener(v -> setChangingFragments(
+                new ListItemsContainerActor(), "actors_list_fragment"));
 
-        binding.openCountries.setOnClickListener(view1 -> {
-            getActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.main_fragment, new ListItemsCountryContainer(), "countries_list_fragment")
-                    .addToBackStack(null)
-                    .commit();
-        });
+        binding.openCountries.setOnClickListener(v -> setChangingFragments(
+                new ListItemsContainerCountry(), "countries_list_fragment"));
 
-        binding.openFilms.setOnClickListener(view1 -> {
-            getActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.main_fragment, new ListItemsFilmContainer(), "films_list_fragment")
-                    .addToBackStack(null)
-                    .commit();
-        });
+        binding.openFilms.setOnClickListener(v -> setChangingFragments(
+                new ListItemsContainerFilm(), "films_list_fragment"));
 
-        binding.openRewards.setOnClickListener(view1 -> {
-            getActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.main_fragment, new ListItemsRewardContainer(), "rewards_list_fragment")
-                    .addToBackStack("list_fragment_transaction")
-                    .commit();
-        });
+        binding.openActorsInFilms.setOnClickListener(v -> setChangingFragments(
+                new ListItemsContainerActorInFilm(), "films_list_fragment"));
 
-        binding.openGenres.setOnClickListener(view1 -> {
-            getActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.main_fragment, new ListItemsGenreContainer(), "genres_list_fragment")
-                    .addToBackStack("list_fragment_transaction")
-                    .commit();
-        });
+        binding.openRewardsForActors.setOnClickListener(v -> setChangingFragments(
+                new ListItemsContainerRewardForActor(), "films_list_fragment"));
+
+        binding.openRewards.setOnClickListener(v -> setChangingFragments(
+                new ListItemsContainerReward(), "rewards_list_fragment"));
+
+        binding.openGenres.setOnClickListener(v -> setChangingFragments(
+                new ListItemsContainerGenre(), "genres_list_fragment"));
+    }
+
+    private void setChangingFragments(ListItemsContainer listItemsContainer, String tag)
+    {
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_fragment, listItemsContainer, tag)
+                .addToBackStack("list_fragment_transaction")
+                .commit();
     }
 }

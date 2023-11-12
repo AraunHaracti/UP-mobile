@@ -11,4 +11,8 @@ public class Genre {
 
     @ColumnInfo(name = "name")
     public String name;
+
+    public Genre(String name){
+        this.name = name;
+    }
 }

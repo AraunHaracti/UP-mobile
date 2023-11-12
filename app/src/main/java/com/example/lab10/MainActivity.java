@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lab10.fragments.MainMenuFragment;
-import com.example.lab10.fragments.containers.ListItemsCountryContainer;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,30 +1,21 @@
 package com.example.lab10.fragments.element;
 
 import android.os.Bundle;
-import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.viewbinding.ViewBindings;
-
-import com.example.lab10.database.Database;
 import com.example.lab10.database.entities.Country;
-import com.example.lab10.databinding.FragmentWorkWithItemBinding;
+import com.example.lab10.databinding.FragmentWorkWithItemCountryBinding;
 
-public class WorkWithCountryItemFragment extends WorkWithItemListFragment {
+public class WorkWithItemCountryFragment extends WorkWithItemFragment {
 
-    FragmentWorkWithItemBinding binding;
+    FragmentWorkWithItemCountryBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentWorkWithItemBinding.inflate(inflater, container, false);
+        binding = FragmentWorkWithItemCountryBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
