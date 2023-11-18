@@ -7,32 +7,22 @@
     android:padding="15dp">
 
     <TextView
-        android:id="@+id/name_1"
+        android:id="@+id/name_reward"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/name_2" />
+        app:layout_constraintBottom_toTopOf="@id/info_reward"/>
 
     <TextView
-        android:id="@+id/name_2"
-        android:layout_width="240sp"
+        android:id="@+id/info_reward"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/name_1"
+        app:layout_constraintTop_toBottomOf="@id/name_reward"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/name_3"
-        />
-
-    <TextView
-        android:id="@+id/name_3"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/name_1"
-        app:layout_constraintLeft_toRightOf="@id/name_2"
         app:layout_constraintRight_toRightOf="parent"
         />
 

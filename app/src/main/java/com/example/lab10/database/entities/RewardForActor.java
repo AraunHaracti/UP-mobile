@@ -22,4 +22,9 @@ public class RewardForActor {
 
     @ColumnInfo(name = "reward_id")
     public int rewardId;
+
+    public RewardForActor(int actorId, int rewardId){
+        this.actorId = actorId;
+        this.rewardId = rewardId;
+    }
 }

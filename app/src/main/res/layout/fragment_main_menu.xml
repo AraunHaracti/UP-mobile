@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MainMenuFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/open_actors"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textSize="30dp"
+            android:text="Actors"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/open_films"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textSize="30dp"
+            android:text="Films"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/open_rewards"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textSize="30dp"
+            android:text="Rewards"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/open_actors_in_films"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textSize="30dp"
+            android:text="Actors in films"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/open_rewards_for_actors"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textSize="30dp"
+            android:text="Rewards for actors"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/open_countries"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textSize="30dp"
+            android:text="Countries"
+            android:layout_margin="10sp"/>
+        <Button
+            android:id="@+id/open_genres"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:textSize="30dp"
+            android:text="Genres"
+            android:layout_margin="10sp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

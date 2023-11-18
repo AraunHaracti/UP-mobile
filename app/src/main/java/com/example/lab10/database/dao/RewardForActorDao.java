@@ -24,4 +24,7 @@ public interface RewardForActorDao {
 
     @Query("SELECT * FROM reward_for_actor")
     List<RewardForActor> getAllRewardForActor();
+
+    @Query("SELECT * FROM reward_for_actor WHERE reward_for_actor.id = :id")
+    RewardForActor getRewardForActor(int id);
 }

@@ -25,4 +25,10 @@ public class Film {
 
     @ColumnInfo(name="country_id")
     public int countryId;
+
+    public Film(String name, int genreId, int countryId){
+        this.name = name;
+        this.genreId = genreId;
+        this.countryId = countryId;
+    }
 }
