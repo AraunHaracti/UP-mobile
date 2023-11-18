@@ -22,9 +22,4 @@ public class ActorInFilm {
 
     @ColumnInfo(name = "film_id")
     public int filmId;
-
-    public ActorInFilm(int actorId, int filmId){
-        this.actorId = actorId;
-        this.filmId = filmId;
-    }
 }

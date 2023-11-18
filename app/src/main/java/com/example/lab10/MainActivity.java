@@ -4,8 +4,6 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.lab10.fragments.MainMenuFragment;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.main_fragment, new MainMenuFragment(), "list_fragment")
+                .add(R.id.main_fragment, new ListItemsContainer(), "list_fragment")
                 .addToBackStack("list_fragment_transaction")
                 .commit();
     }

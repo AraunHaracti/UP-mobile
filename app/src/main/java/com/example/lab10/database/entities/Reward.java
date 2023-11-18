@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+
 @Entity(tableName = "reward")
 public class Reward {
     @PrimaryKey(autoGenerate = true)
@@ -14,9 +15,4 @@ public class Reward {
 
     @ColumnInfo(name = "info")
     public String info;
-
-    public Reward(String name, String info) {
-        this.name = name;
-        this.info = info;
-    }
 }

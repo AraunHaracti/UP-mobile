@@ -24,7 +24,4 @@ public interface GenreDao {
 
     @Query("SELECT * FROM genre")
     List<Genre> getAllGenre();
-
-    @Query("SELECT * FROM genre WHERE genre.id = :id")
-    Genre getGenre(int id);
 }

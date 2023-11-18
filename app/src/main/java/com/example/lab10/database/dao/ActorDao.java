@@ -24,7 +24,4 @@ public interface ActorDao {
 
     @Query("SELECT * FROM actor")
     List<Actor> getAllActor();
-
-    @Query("SELECT * FROM actor WHERE actor.id = :id")
-    Actor getActor(int id);
 }

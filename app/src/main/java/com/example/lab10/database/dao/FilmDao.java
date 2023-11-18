@@ -24,7 +24,4 @@ public interface FilmDao {
 
     @Query("SELECT * FROM film")
     List<Film> getAllFilm();
-
-    @Query("SELECT * FROM film WHERE film.id = :id")
-    Film getFilm(int id);
 }

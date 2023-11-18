@@ -24,7 +24,4 @@ public interface RewardDao {
 
     @Query("SELECT * FROM reward")
     List<Reward> getAllReward();
-
-    @Query("SELECT * FROM reward WHERE reward.id = :id")
-    Reward getReward(int id);
 }

@@ -7,22 +7,23 @@
     android:padding="15dp">
 
     <TextView
-        android:id="@+id/name_actor"
+        android:id="@+id/name_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/name_film"/>
+        app:layout_constraintBottom_toTopOf="@id/name_2"/>
 
     <TextView
-        android:id="@+id/name_film"
-        android:layout_width="190dp"
+        android:id="@+id/name_2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@id/name_actor"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/name_1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
